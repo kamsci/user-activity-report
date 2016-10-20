@@ -160,10 +160,11 @@ $(document).ready(function() {
         // Enable Date Picker
         var dateFormat = "mm/dd/yy",
         from = $("#from").datepicker({
-            maxDate: new Date(max_Date),
-            minDate: new Date(moment(min_Date).add(1, 'days')),
-            defaultDate: new Date(moment(max_Date).add(1, 'days')),
+            maxDate: new Date(moment(max_Date).format()),
+            minDate: new Date(moment(min_Date).format()),
+            defaultDate: new Date(moment(max_Date).format()),
             changeMonth: true,
+            changeYear: true,
             numberOfMonths: 1
         })
         .on("change", function() {
@@ -171,10 +172,11 @@ $(document).ready(function() {
             to.datepicker("option", "minDate",  date);
         }),
         to = $("#to").datepicker({
-            maxDate: new Date(moment(max_Date).add(1, 'days')),
-            minDate: new Date(moment(min_Date).add(1, 'days')),
-            defaultDate: new Date(moment(max_Date).add(1, 'days')),
+            maxDate: new Date(moment(max_Date).format()),
+            minDate: new Date(moment(min_Date).format()),
+            defaultDate: new Date(moment(max_Date).format()),
             changeMonth: true,
+            changeYear: true,
             numberOfMonths: 1
         })
         .on( "change", function() {
@@ -199,6 +201,8 @@ $(document).ready(function() {
     $('#week, #month').on('click', function() {
         $('#from').attr('disabled','disabled');
         $('#to').attr('disabled','disabled');
+        $('#from').datepicker('destroy');
+        $('#to').datepicker('destroy');
         $('#from').val('');
         $('#to').val('');
     });
