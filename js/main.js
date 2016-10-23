@@ -61,10 +61,10 @@ $(document).ready(function() {
         },
         legend: {
             layout: 'vertical',
-            align: 'right',
+            align: 'left',
             x: 120,
             verticalAlign: 'top',
-            y: 20,
+            y: 10,
             floating: true
         },
         series: [{
